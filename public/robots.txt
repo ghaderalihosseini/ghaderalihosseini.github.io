@@ -1,0 +1,44 @@
+User-agent: *
+Allow: /
+
+# ===== Google Search + Classic Crawlers =====
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Google-InspectionTool
+Allow: /
+
+# ===== Microsoft Bing =====
+User-agent: Bingbot
+Allow: /
+
+# ===== AI Retrieval Bots =====
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# ===== Sitemap Index =====
+Sitemap: https://ghaderalihosseini.github.io/sitemap.xml

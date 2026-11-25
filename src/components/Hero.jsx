@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, Mail, ArrowUpRight } from 'lucide-react';
+import { ArrowDown, Mail, ShieldCheck } from 'lucide-react';
 
 export const Hero = ({ onExplore }) => {
   return (
@@ -26,15 +26,31 @@ export const Hero = ({ onExplore }) => {
       </div>
 
       {/* Concise Technical Statement */}
-      <p className="max-w-xl mx-auto text-sm sm:text-base text-slate-300 leading-relaxed mb-10 px-4 font-fa font-normal">
+      <p className="max-w-xl mx-auto text-sm sm:text-base text-slate-300 leading-relaxed mb-8 px-4 font-fa font-normal">
         طراحی، محاسبات فنی، راه‌اندازی و بازرسی استاندارد سیستم‌های آسانسور، پله‌برقی و اتوماسیون برق صنعتی.
       </p>
+
+      {/* Technical Badges Row */}
+      <div className="flex flex-wrap items-center justify-center gap-2 mb-10 max-w-lg px-2">
+        <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-slate-300 backdrop-blur-md">
+          استاندارد EN 81
+        </span>
+        <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-slate-300 backdrop-blur-md">
+          استاندارد EN 115
+        </span>
+        <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-slate-300 backdrop-blur-md">
+          درایوهای VVVF و MRL
+        </span>
+        <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-slate-300 backdrop-blur-md">
+          ارتینگ و حفاظت مدارات
+        </span>
+      </div>
 
       {/* Action Buttons */}
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 z-10 w-full max-w-xs sm:max-w-none px-2">
         <a
           href="#elevators"
-          className="w-full sm:w-auto px-7 py-3 rounded-full bg-white text-black font-bold text-xs sm:text-sm shadow-[0_8px_24px_rgba(255,255,255,0.25),inset_0_1px_0_rgba(255,255,255,0.9)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer no-underline"
+          className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white text-black font-bold text-xs sm:text-sm shadow-[0_8px_24px_rgba(255,255,255,0.25),inset_0_1px_0_rgba(255,255,255,0.9)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer no-underline"
         >
           <span>مشاهده حوزه‌های مهندسی</span>
           <ArrowDown className="w-4 h-4 text-black" />
@@ -42,7 +58,7 @@ export const Hero = ({ onExplore }) => {
 
         <a
           href="#contact"
-          className="w-full sm:w-auto px-7 py-3 rounded-full bg-white/[0.08] hover:bg-white/[0.14] text-white font-medium text-xs sm:text-sm border border-white/[0.16] backdrop-blur-xl hover:border-white/[0.3] active:scale-95 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 no-underline"
+          className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white/[0.08] hover:bg-white/[0.14] text-white font-medium text-xs sm:text-sm border border-white/[0.16] backdrop-blur-xl hover:border-white/[0.3] active:scale-95 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 no-underline"
         >
           <span>ارتباط و استعلام فنی</span>
           <Mail className="w-4 h-4 text-slate-300" />

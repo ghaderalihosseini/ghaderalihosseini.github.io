@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, ChevronsUp, Zap, Check } from 'lucide-react';
+import { ArrowUp, ChevronsUp, Zap, Check, ArrowLeft } from 'lucide-react';
 import { LiquidCard } from './ui/LiquidCard';
 
 export const Specialties = () => {
@@ -11,33 +11,50 @@ export const Specialties = () => {
         <LiquidCard className="w-full">
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
             <div className="md:max-w-xl">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center">
-                  <ArrowUp className="w-4 h-4 text-white" />
+              <div className="flex items-center gap-3 mb-4">
+                <div className="glass-icon-pod w-11 h-11 flex items-center justify-center shrink-0">
+                  <ArrowUp className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-xs font-mono tracking-wider text-slate-400 uppercase">
-                  Elevator Engineering • EN 81
-                </span>
+                <div>
+                  <h2 className="text-xl sm:text-2xl font-bold text-white leading-tight">
+                    سیستم‌های آسانسور کششی و هیدرولیک
+                  </h2>
+                  <div className="text-[11px] font-mono tracking-wider text-slate-400 uppercase mt-0.5">
+                    Elevator Engineering • EN 81
+                  </div>
+                </div>
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
-                سیستم‌های آسانسور کششی و هیدرولیک
-              </h2>
-              <p className="text-sm text-slate-300 leading-relaxed font-fa">
+              
+              <p className="text-sm text-slate-300 leading-relaxed font-fa mb-5">
                 محاسبات فنی ترافیک، طراحی و انتخاب ظرفیت موتور، راه‌اندازی درایوهای کنترل سرعت (VVVF) و بازرسی انطباق با استاندارد ملی و اروپایی.
               </p>
+
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-1.5 text-xs text-white/80 hover:text-white font-medium transition-colors"
+              >
+                <span>درخواست مشاوره یا محاسبات این بخش</span>
+                <ArrowLeft className="w-3.5 h-3.5" />
+              </a>
             </div>
 
-            <div className="space-y-2.5 md:border-r md:border-white/10 md:pr-6 shrink-0">
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
-                <Check className="w-4 h-4 text-white shrink-0" />
+            <div className="space-y-3 md:border-r md:border-white/10 md:pr-6 shrink-0 pt-2 md:pt-0">
+              <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
+                <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-white" />
+                </span>
                 <span>محاسبات کشش (Traction) و انتخاب سیم‌بکسل و فلکه</span>
               </div>
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
-                <Check className="w-4 h-4 text-white shrink-0" />
+              <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
+                <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-white" />
+                </span>
                 <span>راه‌اندازی آسانسورهای روملس (MRL) و گیرلس پرسرعت</span>
               </div>
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
-                <Check className="w-4 h-4 text-white shrink-0" />
+              <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
+                <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-white" />
+                </span>
                 <span>کالیبراسیون توقف هم‌سطح طبقات و تست پاراشوت</span>
               </div>
             </div>
@@ -50,33 +67,50 @@ export const Specialties = () => {
         <LiquidCard className="w-full">
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
             <div className="md:max-w-xl">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center">
-                  <ChevronsUp className="w-4 h-4 text-white" />
+              <div className="flex items-center gap-3 mb-4">
+                <div className="glass-icon-pod w-11 h-11 flex items-center justify-center shrink-0">
+                  <ChevronsUp className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-xs font-mono tracking-wider text-slate-400 uppercase">
-                  Escalators & Moving Walks • EN 115
-                </span>
+                <div>
+                  <h2 className="text-xl sm:text-2xl font-bold text-white leading-tight">
+                    پله‌برقی و پیاده‌رو متحرک
+                  </h2>
+                  <div className="text-[11px] font-mono tracking-wider text-slate-400 uppercase mt-0.5">
+                    Escalators & Moving Walks • EN 115
+                  </div>
+                </div>
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
-                پله‌برقی و پیاده‌رو متحرک
-              </h2>
-              <p className="text-sm text-slate-300 leading-relaxed font-fa">
+
+              <p className="text-sm text-slate-300 leading-relaxed font-fa mb-5">
                 سرویس، عیب‌یابی و اورهال پله‌برقی‌های اماکن پرتردد تجاری و ایستگاه‌ها، تنظیم گپ‌های ایمنی و پایش عملکرد سنسورهای چندگانه.
               </p>
+
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-1.5 text-xs text-white/80 hover:text-white font-medium transition-colors"
+              >
+                <span>درخواست مشاوره یا اورهال پله‌برقی</span>
+                <ArrowLeft className="w-3.5 h-3.5" />
+              </a>
             </div>
 
-            <div className="space-y-2.5 md:border-r md:border-white/10 md:pr-6 shrink-0">
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
-                <Check className="w-4 h-4 text-white shrink-0" />
+            <div className="space-y-3 md:border-r md:border-white/10 md:pr-6 shrink-0 pt-2 md:pt-0">
+              <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
+                <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-white" />
+                </span>
                 <span>کالیبراسیون سنسور صفحه شانه و فرونشست استپ</span>
               </div>
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
-                <Check className="w-4 h-4 text-white shrink-0" />
+              <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
+                <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-white" />
+                </span>
                 <span>تنظیم ترمز اضطراری و هم‌گامی سرعت دستگیره هندریل</span>
               </div>
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
-                <Check className="w-4 h-4 text-white shrink-0" />
+              <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
+                <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-white" />
+                </span>
                 <span>بررسی کشش زنجیر استپ و سلامت بلبرینگ‌ها و شاسی</span>
               </div>
             </div>
@@ -89,33 +123,50 @@ export const Specialties = () => {
         <LiquidCard className="w-full">
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
             <div className="md:max-w-xl">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center">
-                  <Zap className="w-4 h-4 text-white" />
+              <div className="flex items-center gap-3 mb-4">
+                <div className="glass-icon-pod w-11 h-11 flex items-center justify-center shrink-0">
+                  <Zap className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-xs font-mono tracking-wider text-slate-400 uppercase">
-                  Power & Industrial Automation
-                </span>
+                <div>
+                  <h2 className="text-xl sm:text-2xl font-bold text-white leading-tight">
+                    مهندسی برق و اتوماسیون صنعتی
+                  </h2>
+                  <div className="text-[11px] font-mono tracking-wider text-slate-400 uppercase mt-0.5">
+                    Power & Industrial Automation
+                  </div>
+                </div>
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
-                مهندسی برق و اتوماسیون صنعتی
-              </h2>
-              <p className="text-sm text-slate-300 leading-relaxed font-fa">
+
+              <p className="text-sm text-slate-300 leading-relaxed font-fa mb-5">
                 طراحی و اجرای تابلوهای توزیع و فرمان، سیستم‌های نجات اضطراری (Blackout)، ارتینگ حفاظتی و رفع نویز بردهای کنترل میکروپروسسوری.
               </p>
+
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-1.5 text-xs text-white/80 hover:text-white font-medium transition-colors"
+              >
+                <span>درخواست مشاوره طراحی تابلو یا ارتینگ</span>
+                <ArrowLeft className="w-3.5 h-3.5" />
+              </a>
             </div>
 
-            <div className="space-y-2.5 md:border-r md:border-white/10 md:pr-6 shrink-0">
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
-                <Check className="w-4 h-4 text-white shrink-0" />
+            <div className="space-y-3 md:border-r md:border-white/10 md:pr-6 shrink-0 pt-2 md:pt-0">
+              <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
+                <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-white" />
+                </span>
                 <span>طراحی مدارهای قدرت و فرمان و حفاظت موتورهای سه فاز</span>
               </div>
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
-                <Check className="w-4 h-4 text-white shrink-0" />
+              <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
+                <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-white" />
+                </span>
                 <span>اجرای چاه ارت مهندسی و حذف نویز از شبکه‌های CAN-bus</span>
               </div>
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
-                <Check className="w-4 h-4 text-white shrink-0" />
+              <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
+                <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-white" />
+                </span>
                 <span>راه‌اندازی سیستم‌های UPS نجات اضطراری خودکار</span>
               </div>
             </div>

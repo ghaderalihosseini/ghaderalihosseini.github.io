@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, ChevronDown, ChevronUp } from 'lucide-react';
+import { BookOpen, ChevronDown, ChevronUp, Clock } from 'lucide-react';
 import { LiquidCard } from './ui/LiquidCard';
 
 export const BlogSection = () => {
@@ -10,6 +10,7 @@ export const BlogSection = () => {
       id: 1,
       title: 'تنظیم نرمی حرکت و توقف آسانسور در درایوهای VVVF',
       category: 'آسانسور',
+      readTime: '۳ دقیقه',
       brief: 'علت احساس شوک یا تکان در شروع و پایان حرکت کابین و نحوه همگام‌سازی مگنت ترمز با گشتاور موتور.',
       detail: 'کیفیت سواری آسانسور به منحنی S-Curve درایو و باز شدن همزمان ترمز با رسیدن موتور به گشتاور استارت (Pre-torque) وابسته است. در صورت باز شدن ترمز پیش از اعمال جریان کافی، کابین دچار پس‌زدگی اندک شده و مسافر احساس لرزش می‌کند.'
     },
@@ -17,6 +18,7 @@ export const BlogSection = () => {
       id: 2,
       title: 'پایش سنسورهای ایمنی کلیدی در پله‌برقی',
       category: 'پله‌برقی',
+      readTime: '۴ دقیقه',
       brief: 'نقاط حساس ایمنی شامل سنسور شانه ورودی، فرونشست استپ و هماهنگی سرعت هندریل طبق EN 115.',
       detail: 'در پله‌برقی، سوئیچ‌های Comb Plate در صورت گیر افتادن جسم خارجی مدار ایمنی را فوراً قطع می‌کنند. همچنین در صورت تفاوت سرعت دستگیره با پله‌ها بیش از ۱۵٪، سنسور نظارت هندریل فرمان توقف ایمن صادر می‌نماید.'
     },
@@ -24,6 +26,7 @@ export const BlogSection = () => {
       id: 3,
       title: 'نقش ارتینگ مستقل در پایداری بردهای الکترونیکی',
       category: 'برق صنعتی',
+      readTime: '۳ دقیقه',
       brief: 'چرا نوسان پتانسیل نول و نبود ارت مناسب باعث خطای ارتباطی CAN-bus در تابلو فرمان می‌شود؟',
       detail: 'سویچینگ اینورترها فرکانس بالایی روی خطوط ایجاد می‌کند. عدم تخلیه این هارمونیک‌ها از طریق چاه ارت مهندسی، منجر به القای نویز روی کابل‌های دیتا و ایجاد خطاهای کاذب در پردازنده‌های تابلو فرمان خواهد شد.'
     }
@@ -51,27 +54,37 @@ export const BlogSection = () => {
             <LiquidCard key={note.id} className="cursor-pointer" tiltIntensity={4}>
               <div onClick={() => setOpenId(isOpen ? null : note.id)}>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-white/10 text-slate-300 border border-white/15">
+                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/10 text-slate-200 border border-white/15">
                     {note.category}
                   </span>
-                  <span className="text-slate-400">
-                    {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                  </span>
+                  <div className="flex items-center gap-1.5 text-slate-400 text-[11px]">
+                    <Clock className="w-3 h-3" />
+                    <span>{note.readTime}</span>
+                  </div>
                 </div>
 
                 <h3 className="text-base font-bold text-white mb-2 leading-snug">
                   {note.title}
                 </h3>
 
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-300 leading-relaxed font-fa">
                   {note.brief}
                 </p>
 
                 {isOpen && (
-                  <div className="mt-4 pt-3 border-t border-white/10 text-xs text-slate-200 leading-relaxed font-fa bg-white/[0.03] p-3 rounded-xl animate-in fade-in">
+                  <div className="mt-4 pt-3 border-t border-white/10 text-xs text-slate-200 leading-relaxed font-fa bg-white/[0.04] p-3.5 rounded-xl animate-in fade-in">
                     {note.detail}
                   </div>
                 )}
+
+                <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-slate-400">
+                  <span className="text-[11px] text-white/70">
+                    {isOpen ? 'بستن یادداشت' : 'مطالعه جزئیات فنی'}
+                  </span>
+                  <span className="text-white">
+                    {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                  </span>
+                </div>
               </div>
             </LiquidCard>
           );

@@ -1,101 +1,91 @@
 import React from 'react';
-import AnimatedHeroVisual from './AnimatedHeroVisual';
-import { ShieldCheck, MapPin, Calendar, ArrowLeft, ArrowUpDown, Zap, Cpu } from 'lucide-react';
+import { 
+  Zap, 
+  ArrowUpCircle, 
+  ChevronsUp, 
+  BookOpen, 
+  PhoneCall, 
+  CheckCircle2, 
+  ShieldCheck, 
+  Award, 
+  FileText,
+  Mail,
+  MapPin,
+  ExternalLink,
+  ChevronLeft,
+  Settings,
+  Cpu,
+  Layers,
+  Sparkles
+} from 'lucide-react';
 
-export default function Hero() {
+export const Hero = () => {
   return (
-    <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
-      {/* Liquid background ambient glow blobs */}
-      <div className="liquid-blob-1" />
-      <div className="liquid-blob-2" />
+    <section id="hero" className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden">
+      {/* Background ambient liquid orbs */}
+      <div className="absolute top-1/4 -right-20 w-80 h-80 sm:w-96 sm:h-96 rounded-full ambient-glow-cyan pointer-events-none blur-3xl opacity-60" />
+      <div className="absolute top-1/3 -left-20 w-80 h-80 sm:w-96 sm:h-96 rounded-full ambient-glow-amber pointer-events-none blur-3xl opacity-40" />
 
-      <div className="container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
-          {/* Right Column: Hero Content & Typography */}
-          <div className="lg:col-span-7 flex flex-col items-start text-right">
-            
-            {/* Live Status Pill */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300 mb-6 shadow-sm backdrop-blur-md">
-              <span className="pulse-indicator" />
-              <span>مشاور و ناظر تخصصی سیستم‌های پله برقی و آسانسور</span>
-            </div>
-
-            {/* Primary H1 - "مهندس برق" as primary first title */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight mb-4 tracking-tight">
-              <span className="text-liquid-cyan block mb-2 font-black">مهندس برق</span>
-              <span className="block text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-100">
-                قادر علی حسینی شام اسبی
-              </span>
-            </h1>
-
-            {/* Subheading / Specializations */}
-            <p className="text-base sm:text-lg font-medium text-sky-400 mb-6 flex items-center gap-2 flex-wrap">
-              <span className="flex items-center gap-1.5">
-                <Zap className="w-4 h-4 text-sky-400 shrink-0" />
-                مهندسی سیستم‌های پله برقی (EN 115)
-              </span>
-              <span className="text-slate-600">•</span>
-              <span className="flex items-center gap-1.5">
-                <ArrowUpDown className="w-4 h-4 text-emerald-400 shrink-0" />
-                آسانسورهای مدرن گیرلس و کششی (EN 81)
-              </span>
-            </p>
-
-            {/* Short Bio paragraph with generous line-height and Persian Shabnam typography */}
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 max-w-2xl font-light">
-              اینجانب <strong>قادر علی حسینی شام اسبی</strong>، <strong>مهندس برق</strong> و متخصص سیستم‌های مکاترونیک، <strong>پله برقی</strong> و <strong>آسانسور</strong> هستم. <strong>زاده اردبیل</strong> و <strong>متولد ۹ فروردین</strong>؛ با تعهد به استانداردهای بین‌المللی <strong>EN 115</strong> و <strong>EN 81</strong>، طراحی درایوهای پیشرفته VVVF و نظارت فنی بر ایمنی پایدار سرنشینان.
-            </p>
-
-            {/* Quick Fact Badges in Liquid Glass */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full mb-8">
-              <div className="p-3.5 rounded-2xl liquid-glass text-right">
-                <MapPin className="w-4 h-4 text-emerald-400 mb-1.5" />
-                <div className="text-[10px] text-slate-400">زادگاه</div>
-                <div className="text-xs font-bold text-white mt-0.5">اردبیل سرافراز</div>
-              </div>
-
-              <div className="p-3.5 rounded-2xl liquid-glass text-right">
-                <Calendar className="w-4 h-4 text-amber-400 mb-1.5" />
-                <div className="text-[10px] text-slate-400">زادروز</div>
-                <div className="text-xs font-bold text-white mt-0.5">۹ فروردین</div>
-              </div>
-
-              <div className="p-3.5 rounded-2xl liquid-glass text-right">
-                <Zap className="w-4 h-4 text-sky-400 mb-1.5" />
-                <div className="text-[10px] text-slate-400">پله برقی</div>
-                <div className="text-xs font-bold text-white mt-0.5">استاندارد EN 115</div>
-              </div>
-
-              <div className="p-3.5 rounded-2xl liquid-glass text-right">
-                <ShieldCheck className="w-4 h-4 text-indigo-400 mb-1.5" />
-                <div className="text-[10px] text-slate-400">آسانسور</div>
-                <div className="text-xs font-bold text-white mt-0.5">استاندارد EN 81</div>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
-              <a href="#escalator" className="btn-liquid-primary flex-1 sm:flex-initial">
-                <span>تخصص پله برقی</span>
-                <ArrowLeft className="w-4 h-4" />
-              </a>
-
-              <a href="#elevator" className="btn-liquid-secondary flex-1 sm:flex-initial">
-                <span>تخصص آسانسور</span>
-                <ArrowUpDown className="w-4 h-4 text-emerald-400" />
-              </a>
-            </div>
-
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center max-w-3xl mx-auto">
+          {/* Status badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border border-cyan-500/30 text-cyan-300 text-xs sm:text-sm font-medium mb-6 shadow-[0_0_20px_rgba(6,182,212,0.15)]">
+            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            <span>مشاور و مجری پروژه‌های مهندسی و بازرسی فنی</span>
           </div>
 
-          {/* Left Column: Animated Liquid Glass Hero Graphic */}
-          <div className="lg:col-span-5 w-full">
-            <AnimatedHeroVisual />
+          {/* Main Title */}
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 leading-[1.3]">
+            مهندس <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-200 to-amber-200">قادر علی حسینی شام اسبی</span>
+          </h1>
+
+          <p className="text-lg sm:text-xl font-medium text-cyan-100/90 mb-4">
+            مهندسی برق | طراحی، نصب، محاسبات و استانداردسازی سیستم‌های آسانسور و پله‌برقی
+          </p>
+
+          <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+            ارائه خدمات تخصصی در زمینه سیستم‌های محرکه، درایوهای هوشمند صنعتی، تابلو فرمان‌های میکروپروسسوری، تحلیل ایمنی و بازرسی ادواری بر مبنای آخرین استانداردهای معتبر مهندسی.
+          </p>
+
+          {/* Actions */}
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-slate-950 font-bold text-sm shadow-[0_0_25px_rgba(6,182,212,0.4)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <PhoneCall className="w-4 h-4" />
+              <span>درخواست مشاوره تخصصی</span>
+            </a>
+            <a
+              href="#specialties"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-panel glass-panel-interactive text-slate-200 hover:text-white text-sm font-medium"
+            >
+              <Settings className="w-4 h-4 text-cyan-400" />
+              <span>حوزه‌های تخصص و تجارب</span>
+            </a>
           </div>
 
+          {/* Quick Metrics Bar */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-12 sm:mt-16 text-right">
+            <div className="glass-panel p-4 rounded-2xl">
+              <div className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-1">۱۰۰٪</div>
+              <div className="text-xs text-slate-400">انطباق با استانداردهای EN 81</div>
+            </div>
+            <div className="glass-panel p-4 rounded-2xl">
+              <div className="text-2xl sm:text-3xl font-bold text-amber-300 mb-1">+۱۵ سال</div>
+              <div className="text-xs text-slate-400">تخصص در برق و سیستم‌های بالابر</div>
+            </div>
+            <div className="glass-panel p-4 rounded-2xl">
+              <div className="text-2xl sm:text-3xl font-bold text-sky-400 mb-1">ترافیک بالا</div>
+              <div className="text-xs text-slate-400">تحلیل محاسباتی و انتخاب موتور</div>
+            </div>
+            <div className="glass-panel p-4 rounded-2xl">
+              <div className="text-2xl sm:text-3xl font-bold text-emerald-400 mb-1">۲۴/۷</div>
+              <div className="text-xs text-slate-400">پایش ایمنی و پشتیبانی فنی</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
-}
+};

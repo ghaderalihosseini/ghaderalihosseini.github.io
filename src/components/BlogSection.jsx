@@ -1,123 +1,81 @@
 import React, { useState } from 'react';
-import { BookOpen, Calendar, Clock, ChevronRight, Tag, ArrowUpRight, Flame } from 'lucide-react';
+import { BookOpen, ChevronDown, ChevronUp } from 'lucide-react';
+import { LiquidCard } from './ui/LiquidCard';
 
 export const BlogSection = () => {
-  const [selectedPost, setSelectedPost] = useState(null);
+  const [openId, setOpenId] = useState(null);
 
-  const posts = [
+  const notes = [
     {
       id: 1,
-      title: 'علل تکان‌های ناگهانی آسانسور و نحوه کالیبراسیون درایو VVVF',
+      title: 'تنظیم نرمی حرکت و توقف آسانسور در درایوهای VVVF',
       category: 'آسانسور',
-      categoryColor: 'text-cyan-400 border-cyan-500/30',
-      date: '۱۰ آذر ۱۴۰۳',
-      readTime: '۵ دقیقه مطالعه',
-      summary: 'بررسی اختلالات ناشی از تنظیم نادرست ضرایب P و I در درایوهای آسانسوری و راهکارهای نرم‌افزاری جهت دستیابی به استارت و استپ کاملاً نرم و بی‌صدا.',
-      fullContent: `
-در سیستم‌های آسانسور کششی، کیفیت سواری (Ride Quality) مستقیماً به تنظیمات دقیق اینورتر درایو و انکودر وابسته است. زمانی که مسافر احساس لگد یا لرزش در شروع حرکت یا توقف دارد، معمولاً ۳ عامل اصلی وجود دارد:
-۱. باز شدن پیش از موعد مگنت ترمز مکانیکی پیش از آنکه موتور گشتاور لازم را ایجاد کند (عدم هماهنگی ترمز با جریان استارت).
-۲. تنظیم نامناسب منحنی S-Curve در مراحل Acceleration و Deceleration درایو.
-۳. لقی در فک‌های ترمز یا کوپلینگ شفت موتور به گیربکس/فلکه کشش.
-
-با اعمال فیدبک مناسب از لودسل (Weight Sensor) و تنظیم پیش‌گشتاور (Pre-torque) در درایو، این شوک مکانیکی به طور ۱۰۰٪ خنثی می‌شود.
-      `
+      brief: 'علت احساس شوک یا تکان در شروع و پایان حرکت کابین و نحوه همگام‌سازی مگنت ترمز با گشتاور موتور.',
+      detail: 'کیفیت سواری آسانسور به منحنی S-Curve درایو و باز شدن همزمان ترمز با رسیدن موتور به گشتاور استارت (Pre-torque) وابسته است. در صورت باز شدن ترمز پیش از اعمال جریان کافی، کابین دچار پس‌زدگی اندک شده و مسافر احساس لرزش می‌کند.'
     },
     {
       id: 2,
-      title: 'دستورالعمل‌های حیاتی در بازرسی ایمنی سنسورهای پله‌برقی',
+      title: 'پایش سنسورهای ایمنی کلیدی در پله‌برقی',
       category: 'پله‌برقی',
-      categoryColor: 'text-amber-400 border-amber-500/30',
-      date: '۲ آذر ۱۴۰۳',
-      readTime: '۶ دقیقه مطالعه',
-      summary: 'آشنایی با نقاط بحرانی سنسورهای صفحه شانه (Comb Plate)، سنسور فرونشست پله (Step Sag) و سوئیچ‌های سرعت غیرمجاز بر اساس استاندارد EN 115.',
-      fullContent: `
-پله‌برقی به عنوان یک نقاله مداوم مسافر، نیازمند ایمنی لحظه‌ای است. مهم‌ترین سنسورهای امنیتی که باید ماهانه تست فیزیکی شوند عبارتند از:
-۱. سنسور شانه ورودی و خروجی: در صورت ورود جسم خارجی بین دندانه‌های شانه و شیارهای پله، این سوئیچ سریعاً فرمان قطع مدار ایمنی را به مدار فرمان صادر می‌کند.
-۲. سنسور پایش حرکت هندریل: اگر سرعت دستگیره با سرعت پله‌ها بیش از ۱۵٪ تفاوت داشته باشد (یا هندریل بایستد)، پله‌برقی باید ظرف چند ثانیه متوقف گردد.
-۳. مدار تشخیص پارگی یا شل شدن زنجیر استپ: هرگونه انحراف پله‌ها را قبل از وقوع قفل مکانیکی متوقف می‌سازد.
-      `
+      brief: 'نقاط حساس ایمنی شامل سنسور شانه ورودی، فرونشست استپ و هماهنگی سرعت هندریل طبق EN 115.',
+      detail: 'در پله‌برقی، سوئیچ‌های Comb Plate در صورت گیر افتادن جسم خارجی مدار ایمنی را فوراً قطع می‌کنند. همچنین در صورت تفاوت سرعت دستگیره با پله‌ها بیش از ۱۵٪، سنسور نظارت هندریل فرمان توقف ایمن صادر می‌نماید.'
     },
     {
       id: 3,
-      title: 'نقش سیستم ارتینگ مهندسی در محافظت از بردهای الکترونیکی آسانسور',
-      category: 'مهندسی برق',
-      categoryColor: 'text-emerald-400 border-emerald-500/30',
-      date: '۲۲ آبان ۱۴۰۳',
-      readTime: '۴ دقیقه مطالعه',
-      summary: 'چرا نوسانات نول و نبود چاه ارت مستقل باعث سوختن پردازنده‌های تابلو فرمان و خطا در ارتباط کن‌باس (CAN-bus) می‌شود؟',
-      fullContent: `
-امروزه تابلوهای آسانسور از شبکه‌های ارتباطی نظیر CAN-bus یا RS-485 برای ارتباط میان تابلو اصلی، جعبه کارکدک (Car top) و شستی‌های طبقات استفاده می‌کنند. 
-اگر مقاومت چاه ارت بالاتر از حد مجاز (حداکثر ۲ اهم) باشد یا سیم نول دارای پتانسیل سرگردان باشد، نویزهای الکترومغناطیسی ناشی از سویچینگ درایوهای اینورتر روی خطوط دیتای ضعیف القا شده و باعث خطاهای کاذب و هنگ کردن برد می‌گردد.
-تفکیک ارت بدنه فلزی موتورخانه از شیلد کابل‌های سیگنال و اجرای هم‌بندی اصولی، ضامن عمر طولانی تجهیزات میکروالکترونیک خواهد بود.
-      `
+      title: 'نقش ارتینگ مستقل در پایداری بردهای الکترونیکی',
+      category: 'برق صنعتی',
+      brief: 'چرا نوسان پتانسیل نول و نبود ارت مناسب باعث خطای ارتباطی CAN-bus در تابلو فرمان می‌شود؟',
+      detail: 'سویچینگ اینورترها فرکانس بالایی روی خطوط ایجاد می‌کند. عدم تخلیه این هارمونیک‌ها از طریق چاه ارت مهندسی، منجر به القای نویز روی کابل‌های دیتا و ایجاد خطاهای کاذب در پردازنده‌های تابلو فرمان خواهد شد.'
     }
   ];
 
   return (
-    <section id="blog" className="py-20 relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
-          <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full glass-panel border border-white/10 text-xs font-medium text-slate-300 mb-3">
-              <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
-              <span>وبلاگ و یادداشت‌های تجربی</span>
-            </div>
-            <h2 className="text-2xl sm:text-4xl font-bold text-white">
-              دانش تخصصی و نکات اجرایی
-            </h2>
-          </div>
-          <p className="text-slate-400 text-sm max-w-md mt-2 sm:mt-0">
-            یادداشت‌های کاربردی جهت مهندسین ناظر، مدیران فنی پروژه‌ها و تکنسین‌های صنعت بالابر.
-          </p>
+    <section id="blog" className="py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto w-full scroll-mt-20">
+      <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.12] text-xs font-mono text-slate-300 mb-3">
+          <BookOpen className="w-3.5 h-3.5 text-white" />
+          <span>TECHNICAL NOTES</span>
         </div>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 font-fa-title">
+          یادداشت‌های فنی و اجرایی
+        </h2>
+        <p className="text-xs sm:text-sm text-slate-400">
+          نکات مهم بازرسی، تنظیمات میدانی و ایمنی سیستم‌های بالابر و برق
+        </p>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {posts.map((post) => (
-            <article
-              key={post.id}
-              className="glass-panel glass-panel-interactive rounded-2xl p-6 flex flex-col justify-between group cursor-pointer"
-              onClick={() => setSelectedPost(selectedPost?.id === post.id ? null : post)}
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className={`text-xs px-2.5 py-0.5 rounded-full border bg-black/40 font-medium ${post.categoryColor}`}>
-                    {post.category}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {notes.map((note) => {
+          const isOpen = openId === note.id;
+          return (
+            <LiquidCard key={note.id} className="cursor-pointer" tiltIntensity={4}>
+              <div onClick={() => setOpenId(isOpen ? null : note.id)}>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-white/10 text-slate-300 border border-white/15">
+                    {note.category}
                   </span>
-                  <div className="flex items-center gap-1 text-slate-400 text-xs">
-                    <Clock className="w-3.5 h-3.5" />
-                    <span>{post.readTime}</span>
-                  </div>
+                  <span className="text-slate-400">
+                    {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                  </span>
                 </div>
 
-                <h3 className="text-base sm:text-lg font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors leading-snug">
-                  {post.title}
+                <h3 className="text-base font-bold text-white mb-2 leading-snug">
+                  {note.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-3 mb-6">
-                  {post.summary}
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  {note.brief}
                 </p>
 
-                {/* Expanded full content if clicked */}
-                {selectedPost?.id === post.id && (
-                  <div className="mt-4 pt-4 border-t border-cyan-500/20 text-xs sm:text-sm text-slate-200 leading-relaxed bg-cyan-950/20 p-4 rounded-xl mb-4 whitespace-pre-line animate-in fade-in duration-300">
-                    {post.fullContent}
+                {isOpen && (
+                  <div className="mt-4 pt-3 border-t border-white/10 text-xs text-slate-200 leading-relaxed font-fa bg-white/[0.03] p-3 rounded-xl animate-in fade-in">
+                    {note.detail}
                   </div>
                 )}
               </div>
-
-              <div className="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-slate-400">
-                <span className="flex items-center gap-1">
-                  <Calendar className="w-3.5 h-3.5" />
-                  <span>{post.date}</span>
-                </span>
-                <span className="text-cyan-400 flex items-center gap-1 font-medium group-hover:translate-x-[-3px] transition-transform">
-                  <span>{selectedPost?.id === post.id ? 'بستن متن' : 'مطالعه کامل'}</span>
-                  <ChevronRight className="w-3.5 h-3.5 rotate-180" />
-                </span>
-              </div>
-            </article>
-          ))}
-        </div>
+            </LiquidCard>
+          );
+        })}
       </div>
     </section>
   );

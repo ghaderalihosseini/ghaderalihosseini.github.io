@@ -1,90 +1,52 @@
 import React from 'react';
-import { 
-  Zap, 
-  ArrowUpCircle, 
-  ChevronsUp, 
-  BookOpen, 
-  PhoneCall, 
-  CheckCircle2, 
-  ShieldCheck, 
-  Award, 
-  FileText,
-  Mail,
-  MapPin,
-  ExternalLink,
-  ChevronLeft,
-  Settings,
-  Cpu,
-  Layers,
-  Sparkles
-} from 'lucide-react';
+import { ArrowDown, Mail, ArrowUpRight } from 'lucide-react';
 
-export const Hero = () => {
+export const Hero = ({ onExplore }) => {
   return (
-    <section id="hero" className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden">
-      {/* Background ambient liquid orbs */}
-      <div className="absolute top-1/4 -right-20 w-80 h-80 sm:w-96 sm:h-96 rounded-full ambient-glow-cyan pointer-events-none blur-3xl opacity-60" />
-      <div className="absolute top-1/3 -left-20 w-80 h-80 sm:w-96 sm:h-96 rounded-full ambient-glow-amber pointer-events-none blur-3xl opacity-40" />
+    <section id="hero" className="relative min-h-[90vh] flex flex-col justify-center items-center px-4 sm:px-6 pt-28 pb-16 text-center select-none w-full max-w-full">
+      {/* Subtle top ambient glow */}
+      <div className="absolute top-1/4 inset-x-0 mx-auto w-72 sm:w-96 h-72 sm:h-96 bg-white/[0.03] rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto">
-          {/* Status badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border border-cyan-500/30 text-cyan-300 text-xs sm:text-sm font-medium mb-6 shadow-[0_0_20px_rgba(6,182,212,0.15)]">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-            <span>مشاور و مجری پروژه‌های مهندسی و بازرسی فنی</span>
-          </div>
+      {/* Top Capsule Badge */}
+      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.14] backdrop-blur-xl mb-6 shadow-[0_8px_20px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.25)]">
+        <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+        <span className="text-xs sm:text-sm font-medium text-slate-200">
+          قادر علی حسینی شام اسبی
+        </span>
+      </div>
 
-          {/* Main Title */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 leading-[1.3]">
-            مهندس <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-200 to-amber-200">قادر علی حسینی شام اسبی</span>
-          </h1>
+      {/* Main Identity Title */}
+      <div className="max-w-4xl mx-auto mb-6 px-2 w-full">
+        <h1 className="font-fa-title text-4xl sm:text-6xl md:text-7xl text-white tracking-tight leading-tight">
+          قادر علی حسینی
+          <span className="block text-gradient-silver text-xl sm:text-3xl md:text-4xl mt-3 tracking-normal font-normal">
+            مهندس برق | متخصص آسانسور و پله‌برقی
+          </span>
+        </h1>
+      </div>
 
-          <p className="text-lg sm:text-xl font-medium text-cyan-100/90 mb-4">
-            مهندسی برق | طراحی، نصب، محاسبات و استانداردسازی سیستم‌های آسانسور و پله‌برقی
-          </p>
+      {/* Concise Technical Statement */}
+      <p className="max-w-xl mx-auto text-sm sm:text-base text-slate-300 leading-relaxed mb-10 px-4 font-fa font-normal">
+        طراحی، محاسبات فنی، راه‌اندازی و بازرسی استاندارد سیستم‌های آسانسور، پله‌برقی و اتوماسیون برق صنعتی.
+      </p>
 
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
-            ارائه خدمات تخصصی در زمینه سیستم‌های محرکه، درایوهای هوشمند صنعتی، تابلو فرمان‌های میکروپروسسوری، تحلیل ایمنی و بازرسی ادواری بر مبنای آخرین استانداردهای معتبر مهندسی.
-          </p>
+      {/* Action Buttons */}
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 z-10 w-full max-w-xs sm:max-w-none px-2">
+        <a
+          href="#elevators"
+          className="w-full sm:w-auto px-7 py-3 rounded-full bg-white text-black font-bold text-xs sm:text-sm shadow-[0_8px_24px_rgba(255,255,255,0.25),inset_0_1px_0_rgba(255,255,255,0.9)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer no-underline"
+        >
+          <span>مشاهده حوزه‌های مهندسی</span>
+          <ArrowDown className="w-4 h-4 text-black" />
+        </a>
 
-          {/* Actions */}
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-slate-950 font-bold text-sm shadow-[0_0_25px_rgba(6,182,212,0.4)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <PhoneCall className="w-4 h-4" />
-              <span>درخواست مشاوره تخصصی</span>
-            </a>
-            <a
-              href="#specialties"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-panel glass-panel-interactive text-slate-200 hover:text-white text-sm font-medium"
-            >
-              <Settings className="w-4 h-4 text-cyan-400" />
-              <span>حوزه‌های تخصص و تجارب</span>
-            </a>
-          </div>
-
-          {/* Quick Metrics Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-12 sm:mt-16 text-right">
-            <div className="glass-panel p-4 rounded-2xl">
-              <div className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-1">۱۰۰٪</div>
-              <div className="text-xs text-slate-400">انطباق با استانداردهای EN 81</div>
-            </div>
-            <div className="glass-panel p-4 rounded-2xl">
-              <div className="text-2xl sm:text-3xl font-bold text-amber-300 mb-1">+۱۵ سال</div>
-              <div className="text-xs text-slate-400">تخصص در برق و سیستم‌های بالابر</div>
-            </div>
-            <div className="glass-panel p-4 rounded-2xl">
-              <div className="text-2xl sm:text-3xl font-bold text-sky-400 mb-1">ترافیک بالا</div>
-              <div className="text-xs text-slate-400">تحلیل محاسباتی و انتخاب موتور</div>
-            </div>
-            <div className="glass-panel p-4 rounded-2xl">
-              <div className="text-2xl sm:text-3xl font-bold text-emerald-400 mb-1">۲۴/۷</div>
-              <div className="text-xs text-slate-400">پایش ایمنی و پشتیبانی فنی</div>
-            </div>
-          </div>
-        </div>
+        <a
+          href="#contact"
+          className="w-full sm:w-auto px-7 py-3 rounded-full bg-white/[0.08] hover:bg-white/[0.14] text-white font-medium text-xs sm:text-sm border border-white/[0.16] backdrop-blur-xl hover:border-white/[0.3] active:scale-95 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 no-underline"
+        >
+          <span>ارتباط و استعلام فنی</span>
+          <Mail className="w-4 h-4 text-slate-300" />
+        </a>
       </div>
     </section>
   );

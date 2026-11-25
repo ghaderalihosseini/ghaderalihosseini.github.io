@@ -1,55 +1,57 @@
-import React from 'react';
-import { Zap, Phone, BookOpen, Layers, User } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Home, ArrowUp, ChevronsUp, Zap, BookOpen, Mail } from 'lucide-react';
 
-export const Navbar = () => {
+export const Navbar = ({ activeSection, onNavigate }) => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navItems = [
+    { id: 'hero', label: 'خانه', icon: Home },
+    { id: 'elevators', label: 'آسانسور', icon: ArrowUp },
+    { id: 'escalators', label: 'پله‌برقی', icon: ChevronsUp },
+    { id: 'electrical', label: 'برق صنعتی', icon: Zap },
+    { id: 'blog', label: 'یادداشت‌ها', icon: BookOpen },
+    { id: 'contact', label: 'ارتباط', icon: Mail }
+  ];
+
   return (
-    <header className="fixed top-0 inset-x-0 z-40 px-4 pt-3 pointer-events-none">
-      <div className="max-w-6xl mx-auto flex items-center justify-between">
-        
-        {/* Brand Logo / Identity */}
-        <a
-          href="#hero"
-          className="pointer-events-auto inline-flex items-center gap-3 px-4 py-2 rounded-2xl glass-panel border border-white/10 group hover:border-cyan-500/40 transition-all"
-        >
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-slate-950 shadow-[0_0_15px_rgba(6,182,212,0.4)]">
-            <Zap className="w-4 h-4 fill-slate-950" />
-          </div>
-          <div className="text-right">
-            <div className="text-xs font-bold text-white group-hover:text-cyan-300 transition-colors">
-              قادر علی حسینی شام اسبی
-            </div>
-            <div className="text-[10px] text-slate-400">مهندس برق | آسانسور و پله‌برقی</div>
-          </div>
-        </a>
-
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex pointer-events-auto items-center gap-1 px-3 py-1.5 rounded-full glass-panel border border-white/10 text-xs font-medium">
-          <a href="#hero" className="px-3 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
-            خانه
-          </a>
-          <a href="#specialties" className="px-3 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
-            تخصص‌ها
-          </a>
-          <a href="#blog" className="px-3 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
-            یادداشت‌های مهندسی
-          </a>
-          <a href="#contact" className="px-3 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
-            ارتباط و مشاوره
-          </a>
-        </nav>
-
-        {/* Quick Contact CTA */}
-        <div className="pointer-events-auto">
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl glass-panel border border-cyan-500/30 text-cyan-300 hover:text-white text-xs font-semibold hover:bg-cyan-500/10 transition-colors"
-          >
-            <Phone className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">تماس مستقیم</span>
-          </a>
+    <header className="fixed top-3 sm:top-5 inset-x-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none w-full">
+      <nav
+        className={`pointer-events-auto flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-5 py-1.5 sm:py-2 rounded-full border transition-all duration-300 max-w-2xl min-w-0 shadow-2xl ${
+          scrolled
+            ? 'bg-[#000000]/90 backdrop-blur-2xl border-white/[0.18] shadow-[0_16px_36px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.25)]'
+            : 'bg-white/[0.06] backdrop-blur-xl border-white/[0.12] shadow-[0_8px_24px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.18)]'
+        }`}
+      >
+        {/* Desktop Menu Links */}
+        <div className="flex items-center gap-1">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeSection === item.id;
+            return (
+              <button
+                key={item.id}
+                onClick={() => onNavigate(item.id)}
+                className={`relative px-3 sm:px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 flex items-center gap-1.5 focus:outline-none cursor-pointer ${
+                  isActive
+                    ? 'text-white bg-white/[0.16] shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_2px_8px_rgba(0,0,0,0.4)] border border-white/20'
+                    : 'text-slate-300 hover:text-white hover:bg-white/[0.06]'
+                }`}
+              >
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-400'}`} />
+                <span>{item.label}</span>
+              </button>
+            );
+          })}
         </div>
-
-      </div>
+      </nav>
     </header>
   );
 };

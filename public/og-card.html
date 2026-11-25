@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @font-face {
+      font-family: 'Shabnam';
+      src: url('fonts/Shabnam-Bold.woff2') format('woff2');
+      font-weight: bold;
+    }
+    @font-face {
+      font-family: 'Shabnam';
+      src: url('fonts/Shabnam.woff2') format('woff2');
+      font-weight: normal;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #000000;
+      font-family: 'Shabnam', sans-serif;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Ambient glow */
+    .glow-orb-1 {
+      position: absolute;
+      top: -100px;
+      right: 100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .glow-orb-2 {
+      position: absolute;
+      bottom: -150px;
+      left: 150px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    /* Main Glass Card */
+    .glass-card {
+      width: 1080px;
+      height: 510px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 36px;
+      padding: 55px 65px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    }
+
+    /* Top crystal highlight */
+    .card-sheen {
+      position: absolute;
+      top: 0;
+      left: 60px;
+      right: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 16px;
+      color: #e2e8f0;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #ffffff;
+    }
+
+    .site-domain {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 17px;
+      color: #94a3b8;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-size: 58px;
+      font-weight: bold;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 28px;
+      background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 18px;
+    }
+
+    .hero-desc {
+      font-size: 20px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      max-width: 850px;
+    }
+
+    .badges-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .badge {
+      padding: 9px 20px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 16px;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-orb-1"></div>
+  <div class="glow-orb-2"></div>
+
+  <div class="glass-card">
+    <div class="card-sheen"></div>
+
+    <div class="top-bar">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span>وب‌سایت و پورتفولیوی رسمی مهندسی</span>
+      </div>
+      <div class="site-domain">ghaderalihosseini.github.io</div>
+    </div>
+
+    <div>
+      <h1 class="hero-title">قادر علی حسینی شام اسبی</h1>
+      <div class="hero-subtitle">مهندس برق | متخصص و مشاور آسانسور و پله‌برقی</div>
+      <p class="hero-desc">طراحی، محاسبات ترافیک، راه‌اندازی و بازرسی استاندارد سیستم‌های بالابر، پله‌برقی و اتوماسیون برق صنعتی</p>
+    </div>
+
+    <div class="badges-row">
+      <span class="badge">استاندارد EN 81</span>
+      <span class="badge">استاندارد EN 115</span>
+      <span class="badge">درایوهای VVVF و MRL</span>
+      <span class="badge">اتوماسیون و ارتینگ</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# ===== Google Search + Classic Crawlers =====
+# ===== Google Search, Gemini & Classic Crawlers =====
 User-agent: Googlebot
 Allow: /
 
@@ -11,18 +11,26 @@ Allow: /
 User-agent: Googlebot-News
 Allow: /
 
+User-agent: Googlebot-Video
+Allow: /
+
 User-agent: Google-InspectionTool
 Allow: /
 
-# ===== Microsoft Bing =====
-User-agent: Bingbot
-Allow: /
-
-# ===== AI Retrieval Bots =====
 User-agent: Google-Extended
 Allow: /
 
 User-agent: GoogleOther
+Allow: /
+
+User-agent: APIs-Google
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /
+
+# ===== OpenAI (ChatGPT, GPTBot, SearchBot) =====
+User-agent: GPTBot
 Allow: /
 
 User-agent: OAI-SearchBot
@@ -31,13 +39,54 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: GPTBot
+User-agent: OpenAI-SearchBot
 Allow: /
 
+# ===== Anthropic Claude =====
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# ===== Perplexity AI =====
 User-agent: PerplexityBot
 Allow: /
 
+# ===== Microsoft Bing & Copilot =====
+User-agent: Bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+User-agent: BingPreview
+Allow: /
+
+# ===== Apple Siri & Apple Intelligence =====
 User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ===== Social Previews (Telegram, WhatsApp, Twitter, LinkedIn) =====
+User-agent: TelegramBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: LinkedInBot
 Allow: /
 
 # ===== Sitemap Index =====

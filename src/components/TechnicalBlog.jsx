@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, Calendar, Clock, ArrowLeft, X, Tag, User } from 'lucide-react';
+import { BookOpen, Calendar, Clock, ArrowLeft, X, User } from 'lucide-react';
 
 export default function TechnicalBlog() {
   const [selectedPost, setSelectedPost] = useState(null);
@@ -60,33 +60,33 @@ export default function TechnicalBlog() {
   ];
 
   return (
-    <section id="blog" className="py-20 relative bg-slate-900/40">
+    <section id="blog" className="py-24 relative">
       <div className="container">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 text-cyan-400 border border-cyan-800/50 text-xs font-semibold mb-3">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 text-xs font-semibold mb-3">
             <BookOpen className="w-3.5 h-3.5" />
             <span>پایگاه دانش مهندسی برق، پله برقی و آسانسور</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-            وبلاگ و مقالات تخصصی <span className="text-gradient">مهندس قادر علی حسینی</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+            وبلاگ و مقالات تخصصی <span className="text-liquid-cyan">مهندس قادر علی حسینی</span>
           </h2>
-          <p className="text-slate-400 text-sm md:text-base leading-relaxed">
-            مجموعه مقالات مرجع در حوزه استاندارد EN 81 آسانسور، استاندارد EN 115 پله برقی، موتورهای گیرلس و اتوماسیون درایوهای صنعتی.
+          <p className="text-slate-400 text-sm sm:text-base leading-relaxed font-light">
+            مجموعه مقالات مرجع در حوزه استاندارد EN 81 آسانسور، استاندارد EN 115 پله برقی، موتورهای گیرلس و درایوهای هوشمند صنعتی.
           </p>
         </div>
 
-        {/* Blog Grid */}
+        {/* Blog Grid in Liquid Glass */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-right">
           {articles.map((post) => (
             <article
               key={post.id}
-              className="card-3d glass-panel p-6 md:p-8 rounded-2xl flex flex-col justify-between border-slate-800 hover:border-cyan-500/50 transition-all"
+              className="liquid-glass p-6 sm:p-8 rounded-3xl flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className="px-3 py-1 rounded-full bg-cyan-950/80 text-cyan-300 border border-cyan-800/60 text-xs font-semibold">
+                  <span className="px-3 py-1 rounded-full bg-white/5 text-sky-300 border border-white/10 text-xs font-medium">
                     {post.category}
                   </span>
                   <div className="flex items-center gap-3 text-xs text-slate-400">
@@ -101,26 +101,26 @@ export default function TechnicalBlog() {
                   </div>
                 </div>
 
-                <h3 className="text-lg md:text-xl font-bold text-white mb-3 hover:text-cyan-400 transition-colors leading-snug">
+                <h3 className="text-base sm:text-lg font-bold text-white mb-3 hover:text-sky-400 transition-colors leading-snug">
                   {post.title}
                 </h3>
 
-                <p className="text-slate-300 text-xs md:text-sm leading-relaxed mb-6">
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
                   {post.summary}
                 </p>
               </div>
 
-              <div className="flex items-center justify-between pt-4 border-t border-slate-800/80">
-                <span className="text-xs text-slate-400 flex items-center gap-1.5">
-                  <User className="w-3.5 h-3.5 text-cyan-400" />
+              <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                <span className="text-xs text-slate-400 flex items-center gap-1.5 font-light">
+                  <User className="w-3.5 h-3.5 text-sky-400" />
                   {post.author}
                 </span>
 
                 <button
                   onClick={() => setSelectedPost(post)}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-sky-400 hover:text-sky-300 transition-colors"
                 >
-                  <span>مطالعه کامل مقاله</span>
+                  <span>مطالعه مقاله</span>
                   <ArrowLeft className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -132,38 +132,38 @@ export default function TechnicalBlog() {
 
       {/* Modal for Reading Full Article */}
       {selectedPost && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-          <div className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto glass-panel-glow p-6 md:p-8 rounded-2xl text-right bg-slate-950 border-cyan-700/60 shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-xl">
+          <div className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto liquid-glass p-6 sm:p-8 rounded-3xl text-right bg-slate-950/95 border-white/15 shadow-2xl">
             <button
               onClick={() => setSelectedPost(null)}
-              className="absolute top-4 left-4 p-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition"
+              className="absolute top-4 left-4 p-2 rounded-xl bg-white/10 text-slate-300 hover:text-white transition"
               aria-label="بستن پنجره"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <span className="px-3 py-1 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-800 text-xs font-semibold inline-block mb-3">
+            <span className="px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-500/30 text-xs font-semibold inline-block mb-3">
               {selectedPost.category}
             </span>
 
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-3 leading-snug">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 leading-snug">
               {selectedPost.title}
             </h3>
 
-            <div className="flex items-center gap-4 text-xs text-slate-400 mb-6 pb-4 border-b border-slate-800">
+            <div className="flex items-center gap-3 text-xs text-slate-400 mb-6 pb-4 border-b border-white/10">
               <span>نویسنده: <strong>{selectedPost.author}</strong></span>
               <span>•</span>
-              <span>تاریخ انتشار: {selectedPost.date}</span>
+              <span>تاریخ: {selectedPost.date}</span>
               <span>•</span>
               <span>مدت مطالعه: {selectedPost.readTime}</span>
             </div>
 
-            <div className="text-slate-200 text-sm md:text-base leading-relaxed space-y-4 whitespace-pre-line">
+            <div className="text-slate-200 text-sm sm:text-base leading-relaxed space-y-4 whitespace-pre-line font-light">
               {selectedPost.content}
             </div>
 
-            <div className="mt-8 pt-4 border-t border-slate-800 text-xs text-slate-400">
-              نوشته شده توسط <strong>قادر علی حسینی شام اسبی</strong>، مهندس برق و مشاور سیستم‌های پله برقی و آسانسور.
+            <div className="mt-8 pt-4 border-t border-white/10 text-xs text-slate-400 font-light">
+              نگارش توسط <strong>مهندس برق قادر علی حسینی شام اسبی</strong>، مشاور سیستم‌های پله برقی و آسانسور.
             </div>
           </div>
         </div>

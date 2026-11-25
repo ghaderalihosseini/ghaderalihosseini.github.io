@@ -1,7 +1,7 @@
 import React from 'react';
-import { ArrowDown, Mail, ShieldCheck } from 'lucide-react';
+import { ArrowDown, Mail } from 'lucide-react';
 
-export const Hero = ({ onExplore }) => {
+export const Hero = () => {
   return (
     <section id="hero" className="relative min-h-[90vh] flex flex-col justify-center items-center px-4 sm:px-6 pt-28 pb-16 text-center select-none w-full max-w-full">
       {/* Subtle top ambient glow */}

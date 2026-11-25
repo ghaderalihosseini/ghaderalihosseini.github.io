@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, Send, Check, MessageSquare, SendHorizontal } from 'lucide-react';
+import { Mail, Phone, Send, Check, SendHorizontal } from 'lucide-react';
 import { LiquidCard } from './ui/LiquidCard';
 
 export const ContactSection = () => {
@@ -8,6 +8,7 @@ export const ContactSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
+    e.currentTarget.reset();
     setTimeout(() => setSubmitted(false), 5000);
   };
 

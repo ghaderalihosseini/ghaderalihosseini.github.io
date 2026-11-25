@@ -50,7 +50,7 @@ export default function App() {
       <div className="relative z-10">
         <Navbar activeSection={activeSection} onNavigate={handleNavigate} />
         <main>
-          <Hero onExplore={() => handleNavigate('elevators')} />
+          <Hero />
           <Specialties />
           <BlogSection />
           <ContactSection />
